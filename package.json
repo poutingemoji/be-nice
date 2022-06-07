@@ -1,0 +1,28 @@
+{
+  "name": "be-nice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "watch": "nodemon -L --watch src",
+    "start": "node src/index.js",
+    "format": "prettier --write \"src/**/*.js\""
+  },
+  "author": "poutingemoji",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@discordjs/builders": "^0.15.0",
+    "@discordjs/rest": "^0.5.0",
+    "@prisma/client": "^3.14.0",
+    "@tensorflow-models/toxicity": "^1.2.2",
+    "@tensorflow/tfjs": "^3.18.0",
+    "@tensorflow/tfjs-node": "^3.18.0",
+    "discord-api-types": "^0.33.4",
+    "discord.js": "^13.8.0",
+    "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "prisma": "^3.14.0"
+  }
+}

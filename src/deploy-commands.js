@@ -18,7 +18,7 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: "9" }).setToken(process.env.DISCORD_TOKEN);
 
-/*
+
 rest
   .put(
     Routes.applicationGuildCommands(
@@ -27,14 +27,14 @@ rest
     ),
     { body: commands }
   )
-  .then(() => console.log("Successfully registered application commands."))
+  .then(() => console.log("Successfully registered guild application commands."))
   .catch(console.error);
-*/
-
-async function main() { 
-  await rest.put(
+  
+/*
+  rest.put(
     Routes.applicationCommands(process.env.CLIENT_ID),
     { body: commands },
-  );
-}
-main()
+  )  .then(() => console.log("Successfully registered global application commands."))
+  .catch(console.error);
+
+*/

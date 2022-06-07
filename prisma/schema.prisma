@@ -17,6 +17,6 @@ model GuildSettings {
   disabled Boolean @default(false)
   labelsToInclude String[]
   customPhrases String []
-  version Int
+  version Int @default(0)
 }
 

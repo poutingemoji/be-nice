@@ -36,7 +36,7 @@ module.exports = {
       });
     if (guildSettings?.disabled) return;
     const labelsToInclude = labels.filter((label) =>
-      guildSettings?.excludedLabels.includes(label)
+      guildSettings?.excludedLabels?.includes(label)
     );
     const threshold = guildSettings?.threshold || 0.85;
     const allPhrases = guildSettings

@@ -1,1 +1,1 @@
-worker: npm run start
+worker: npx prisma generate && npm run start

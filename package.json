@@ -22,7 +22,6 @@
     "dotenv": "^16.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16",
-    "prisma": "^3.14.0"
+    "nodemon": "^2.0.16"
   }
 }

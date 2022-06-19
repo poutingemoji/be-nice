@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { adminOnly } = require("../utils/guards")
+const {prisma} = require("../lib/prisma")
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -20,7 +21,7 @@ module.exports = {
     if (!(0 <= thresholdValue && thresholdValue <= 1)) {
       return interaction.reply(`The threshold value must be between 0 and 1.`);
     }
-    const guildSettings = await interaction.client.database.guildSettings.upsert({
+    const guildSettings = await prisma.guildSettings.upsert({
       where: {
         guildId: interaction.guildId,
       },

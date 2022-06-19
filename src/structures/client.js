@@ -35,6 +35,12 @@ for (const file of eventFiles) {
   }
 }
 
+if (process.env.NODE_ENV === "production") {
+  const ap = AutoPoster(process.env.TOPGG_TOKEN, client);
+  ap.on("posted", () => {
+    console.log("Posted stats to Top.gg!");
+  });
+}
 
   client.database = prisma;
 

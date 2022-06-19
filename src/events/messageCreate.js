@@ -25,13 +25,13 @@ const labels = [
   "threat",
   "toxicity",
 ];
-
+const {prisma}= require("../lib/prisma")
 module.exports = {
   name: "messageCreate",
   async execute(message) {
     if (message.author.id === message.client.id) return;
     const guildSettings =
-      await message.client.database.guildSettings.findUnique({
+      await prisma.guildSettings.findUnique({
         where: { guildId: message.guild.id },
       });
     if (guildSettings?.disabled) return;

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { adminOnly } = require("../utils/guards")
-
+const {prisma} = require("../lib/prisma")
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("labels")
@@ -24,7 +24,7 @@ module.exports = {
     const labelValue = interaction.options.getString("label");
 
     const guildSettings =
-      await interaction.client.database.guildSettings.upsert({
+      await prisma.guildSettings.upsert({
         where: {
           guildId: interaction.guildId,
         },
@@ -47,7 +47,7 @@ module.exports = {
         }
 
         updatedGuildSettings =
-          await interaction.client.database.guildSettings.update({
+          await prisma.guildSettings.update({
             where: { guildId: interaction.guildId },
             data: {
               excludedLabels: { set: guildSettings.excludedLabels },
@@ -55,7 +55,7 @@ module.exports = {
           });
       } else {
         updatedGuildSettings =
-          await interaction.client.database.guildSettings.update({
+          await prisma.guildSettings.update({
             where: { guildId: interaction.guildId },
             data: {
               excludedLabels: { push: labelValue },

@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { adminOnly } = require("../utils/guards")
+const {prisma } = require("../lib/prisma")
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -15,8 +16,8 @@ module.exports = {
     const g = adminOnly(interaction); if (g) return g;
 
     const phrase = interaction.options.getString("phrase")
-    console.log(interaction.client.database.guildSettings)
-    const guildSettings = await interaction.client.database.guildSettings.upsert({
+    console.log(prisma.guildSettings)
+    const guildSettings = await prisma.guildSettings.upsert({
       where: {
         guildId: interaction.guildId,
       },

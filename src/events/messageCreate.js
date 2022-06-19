@@ -49,13 +49,13 @@ module.exports = {
       const randPhrase =
         allPhrases[Math.floor(Math.random() * allPhrases.length)];
       const webhook = await message.channel.createWebhook(
-        message.author.username,
-        { avatar: message.author.displayAvatarURL() }
+        message.member.displayName,
+        { avatar: message.member.displayAvatarURL() }
       );
       await webhook.send({
         content: randPhrase,
-        username: message.author.username,
-        avatarURL: message.author.displayAvatarURL(),
+        username: message.member.username,
+        avatarURL: message.member.displayAvatarURL(),
       });
       await webhook.delete();
     }

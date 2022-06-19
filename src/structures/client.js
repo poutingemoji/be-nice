@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Intents, Collection } = require("discord.js");
-const prisma = require("./database");
+
 // Creating Client
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -41,10 +41,6 @@ if (process.env.NODE_ENV === "production") {
     console.log("Posted stats to Top.gg!");
   });
 }
-
-  client.database = prisma;
-
-
 
 // Login to Discord with client token
 client.login(process.env.DISCORD_TOKEN);

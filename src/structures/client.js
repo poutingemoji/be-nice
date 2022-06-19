@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Intents, Collection } = require("discord.js");
+const { AutoPoster } = require("topgg-autoposter");
 
 // Creating Client
 const client = new Client({
